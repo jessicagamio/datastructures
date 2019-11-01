@@ -9,10 +9,6 @@ class Node(object):
         else:
             self.children = children
 
-    def addchildren(self, node, children = None):
-        """adds Node to Tree"""
-        self.children.append(Node(node))
-
     def __repr__(self):
         return "<Node {data}>".format(data = self.data)
 
@@ -34,11 +30,8 @@ class Tree(object):
         stack = [curr]
 
         while curr != node:
-            # print('does not equal to node!!!!!!')
-            # print('curr.children====>', curr.children)
             if curr.children != []:
                 for child in curr.children:
-                    # print('child ****', child)
                     if child.data == node:
                         return child
                 stack.pop()
@@ -53,14 +46,15 @@ class Tree(object):
 
 
 
+
 testTree = Tree(Node('parent'))
 
 testTree.root.addchildren('child1')
 testTree.root.addchildren('child2')
 
 node = testTree.findNode('child2')
-node.addchildren('child2.1')
-node.addchildren('child2.2')
+node.children.append('child2.1')
+node.children.append('child2.2')
 
 
 
