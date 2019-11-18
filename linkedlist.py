@@ -14,7 +14,7 @@ class LinkedList(object):
 
     def removeNode(self, data):
         """removes  item from linked list"""
-        if self.head==node: 
+        if self.head.data == data: 
             self.head = self.head.next
 
         curr = self.head
@@ -22,11 +22,11 @@ class LinkedList(object):
         found = False
 
         while not found:
-            if curr.data == node.data:
+            if curr.data == data:
                 found = True
-            
-            prev = curr
-            curr = curr.next
+            else:
+                prev = curr
+                curr = curr.next
 
         if prev == None:
             self.head = curr.next
@@ -51,3 +51,19 @@ class Node(object):
         self.next.next = node
 
 
+mynode=Node('apple',Node('berry',Node('cheery')))
+
+mylist=LinkedList()
+
+curr = mynode
+
+while curr != None:
+    mylist.appendNode(curr)
+    curr = curr.next
+
+print('head ==>', mylist.head.data)
+print('tail ==>', mylist.tail.data)
+
+mylist.removeNode('berry')
+
+print('head.next ==>', mylist.head.next.data)
