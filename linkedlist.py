@@ -37,9 +37,9 @@ class LinkedList(object):
 
 class Node(object):
     """create node"""
-    def __init__(self, data):
+    def __init__(self, data, next=None):
         self.data=data
-        self.next=None
+        self.next=next
 
     def addNode(self, data):
         """adds node"""
