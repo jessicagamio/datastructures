@@ -28,4 +28,46 @@ class BST(object):
 
         return True
 
-    def checkBalance()
+    def checkBalance(self, node):
+
+        """
+        example without recursion
+
+        stack=[]
+        levels={}
+
+        stack.append(node)
+        num = 0
+
+        while stack:
+            curr = stack.pop()
+            if levels[curr] == None:
+                num += 1
+                levels[curr] = num
+
+                if curr.left:
+                    levels[curr.left] = num + 1
+                    stack.append(curr.left)
+                if curr.right:
+                    levels[curr.right] = num + 1
+                    stack.append(curr.right)
+            else:
+                num = levels[curr]
+
+                if curr.left:
+                    levels[curr.left] = num + 1
+                    stack.append(curr.left)
+                if curr.right:
+                    levels[curr.right] = num + 1
+                    stack.append(curr.right)
+
+        max = max (set(levels.values()))
+        min = min (set(levels.values()))
+
+        return max-min >= 1
+    """
+    
+
+
+
+
