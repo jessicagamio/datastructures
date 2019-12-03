@@ -23,6 +23,7 @@ class LinkedList(object):
 
         while not found:
             if curr.data == data:
+                print('We found berry')
                 found = True
             else:
                 prev = curr
@@ -43,12 +44,16 @@ class Node(object):
 
     def addNode(self, data):
         """adds node"""
-        node = Node(data)
+        node=Node(data)
 
         if self.next == None:
             self.next = node
 
-        self.next.next = node
+        else:
+            while self.next != None:
+                self = self.next
+
+            self.next = node
 
 
 mynode=Node('apple',Node('berry',Node('cheery')))
