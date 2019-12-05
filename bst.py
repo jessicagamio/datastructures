@@ -1,12 +1,40 @@
 
+class Node(object):
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+
 
 
 class BST(object):
     """create Binary Search Tree"""
-    def __init__ (self, data):
-        self.data = data
+    def __init__ (self):
         self.left = None
         self.right = None
+        self.root = None
+
+    def minimalTree(self, array, root=None):
+
+
+        if len(array)>1:
+
+            mid = len(array)//2
+            mid_node = Node(array[mid])
+
+            if root == None:
+                self.root = mid_node # Establish the root of tree
+
+            # if self.root exists pass the mid value as 
+            else:
+                if mid_node < root.data:
+                    self.left = mid_node
+                    minimalTree(array[:len(array)//2], mid_node)
+
+                if mid_node > root.data:
+                    self.right = mid_node
+                    minimalTree(array[(len(array)//2) + 1:], mid_node)
+
+        return self.root
 
 
     def validateBST(self, node, min = None, max = None):
@@ -28,10 +56,10 @@ class BST(object):
 
         return True
 
-    def checkBalance(self, node):
+     """def checkBalance(self, node):
 
-        """
-        example without recursion
+     
+        ###example without recursion
 
         stack=[]
         levels={}
@@ -67,6 +95,9 @@ class BST(object):
         return max-min >= 1
     """
     
+
+
+
 
 
 
